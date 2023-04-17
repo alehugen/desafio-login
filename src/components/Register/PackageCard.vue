@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <div class="tag" v-if="packageInfo.mostWanted">MAIS USADO</div>
     <h2>{{ packageInfo.title }}</h2>
     <h1 v-if="packageInfo.fee === 0">Grátis</h1>
     <h1 v-else><small>R$ </small>{{ packageInfo.fee }}<small>/mês</small></h1>
@@ -113,6 +114,18 @@ export default {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.tag {
+  position: absolute;
+  width: 8%;
+  margin-top: -2.75rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-weight: 600;
+  background-color: #0bc403;
+  color: #fff;
 }
 
 button {
