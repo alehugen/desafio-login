@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header class="header">
-      <Logo :image-height="48" :image-width="180" />
+      <Logo :image-height="40" :image-width="180" />
     </header>
     <LoginForm />
   </div>
