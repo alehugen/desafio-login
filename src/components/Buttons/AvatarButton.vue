@@ -18,6 +18,9 @@ export default {
 
 <style>
 .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #d9d9d9;
   width: 32px;
   height: 32px;
@@ -25,7 +28,6 @@ export default {
   border-radius: 100%;
   padding: 1rem;
   margin-right: .7rem;
-  text-align: center;
   color: #ffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
