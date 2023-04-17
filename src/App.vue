@@ -20,7 +20,7 @@ body,
 input,
 textarea,
 button {
-  font-family: 'Roboto';
+  font-family: 'Open Sans';
   font-weight: 400;
 }
 </style>
