@@ -1,8 +1,8 @@
 <template>
   <div class="text-input">
-    <label for="textInput">{{ label }}</label>
+    <label :for="label">{{ label }}</label>
     <input
-      id="textInput"
+      :id="label"
       :type="type"
       v-model="value"
       :placeholder="placeholder"
@@ -32,14 +32,14 @@ export default {
       required: true
     }
   },
-  emits: ['update:userEmail'],
+  emits: ['update:value'],
   setup(props, ctx) {
     const value = computed({
       get() {
         return props.value
       },
       set(value) {
-        ctx.emit('update:userEmail', value)
+        ctx.emit('update:value', value)
       }
     })
 

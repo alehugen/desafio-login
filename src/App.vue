@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: '#FAFAFC';
+  background-color: '#fafafc';
   color: '#292D32';
   -webkit-font-smoothing: 'antialiased';
 }

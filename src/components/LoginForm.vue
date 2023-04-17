@@ -8,40 +8,46 @@
     <TextInput
       type="email"
       placeholder="Seu e-mail"
-      :value="formInputs.user"
+      v-model:value="formInputs.user"
       label="E-mail"
     />
     <TextInput
       type="password"
       placeholder="Sua senha"
-      :value="formInputs.password"
+      v-model:value="formInputs.password"
       label="Senha"
     />
 
-    <GenericButton label="Fazer Login" />
+    <GenericButton label="Fazer Login" @click="signIn()" />
   </div>
 
-  <router-link to="/signIn" class="link"
+  <router-link to="/register" class="link"
     >Ainda não tem conta? <span>Cadastre-se</span></router-link
   >
 </template>
 <script lang="ts">
-import GenericButton from './Buttons/GenericButton.vue'
-import TextInput from './Inputs/TextInput.vue'
+import router from "../routes";
+import GenericButton from "./Buttons/GenericButton.vue";
+import TextInput from "./Inputs/TextInput.vue";
 
 export default {
   components: { TextInput, GenericButton },
   setup() {
     const formInputs = {
-      user: '',
-      password: ''
-    }
+      user: "",
+      password: "",
+    };
 
-    return {
-      formInputs
+    async function signIn() {
+      console.log(formInputs);
+      router.push("/home");
     }
-  }
-}
+    return {
+      formInputs,
+      signIn,
+    };
+  },
+};
 </script>
 <style lang="css">
 .form-box {
