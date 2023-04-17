@@ -1,6 +1,7 @@
 
 export const Packages = [
   {
+    id: 1,
     title: "Hospedagem 1",
     fee: 0,
     description: "você não paga nada para usar sem taxa de setup",
@@ -33,6 +34,7 @@ export const Packages = [
     mostWanted: 0,
   },
   {
+    id: 2,
     title: "Hospedagem 2",
     fee: 499,
     description: "cobrado mensalmente sem taxa de setup",
@@ -68,6 +70,7 @@ export const Packages = [
     mostWanted: 1,
   },
   {
+    id: 3,
     title: "Hospedagem 3",
     fee: 999,
     description: "cobrado mensalmente sem taxa de setup",

@@ -8,7 +8,10 @@
     <div class="divider"></div>
     <h3>{{ packageInfo.subTitle }}</h3>
     <div class="divider"></div>
-    <GenericButton label="ESCOLHER ESSE PLANO" />
+    <GenericButton
+      label="ESCOLHER ESSE PLANO"
+      @click="selectPackage(packageInfo)"
+    />
     <p>
       Seu site em servidores <u>nos {{ packageInfo.location }}</u>
     </p>
@@ -54,9 +57,11 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import GenericButton from "../Buttons/GenericButton.vue";
+import { useRouter } from "vue-router";
 interface PackageProps {
+  id: number;
   title: string;
   fee: number;
   description: string;
@@ -92,12 +97,14 @@ export default {
 
     const { packageInfo } = props;
 
-    onMounted(() => {
-      console.log(packageInfo);
-    });
+    function selectPackage(pack: PackageProps) {
+      console.log(pack);
+    }
+
     return {
       features,
       packageInfo,
+      selectPackage,
     };
   },
 };
