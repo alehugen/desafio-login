@@ -7,6 +7,7 @@
       v-model="value"
       :placeholder="placeholder"
     />
+    <p v-if="type === 'password'">Esqueci minha senha</p>
   </div>
 </template>
 <script lang="ts">
@@ -48,13 +49,13 @@ export default {
   }
 }
 </script>
-<style lang="css">
+<style lang="css" scoped>
 .text-input {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  font-weight: 600;
+  font-weight: 400;
   padding: 1rem;
 }
 
@@ -64,5 +65,22 @@ export default {
   border-radius: 5px;
   padding: 1.5rem;
   margin-top: 5px;
+}
+
+input::placeholder {
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+label {
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  margin-top: 5px;
+  text-align: end;
+  font-size: medium;
+  font-weight: 600;
 }
 </style>
