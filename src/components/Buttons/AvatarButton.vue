@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .avatar {
   display: flex;
   justify-content: center;
@@ -27,10 +27,13 @@ export default {
   border: 1px #d9d9d9 solid;
   border-radius: 100%;
   padding: 1rem;
-  margin-right: .7rem;
-  color: #ffff;
+  margin-right: 0.7rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   cursor: pointer;
+}
+
+p {
+  color: #ffff;
 }
 </style>
