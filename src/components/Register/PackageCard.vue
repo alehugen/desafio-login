@@ -1,7 +1,8 @@
 <template>
   <div class="card">
     <h2>{{ packageInfo.title }}</h2>
-    <h1>{{ packageInfo.fee === 0 ? "Grátis" : `R$${packageInfo.fee}/mês` }}</h1>
+    <h1 v-if="packageInfo.fee === 0">Grátis</h1>
+    <h1 v-else><small>R$ </small>{{ packageInfo.fee }}<small>/mês</small></h1>
     <span>{{ packageInfo.description }}</span>
     <div class="divider"></div>
     <h3>{{ packageInfo.subTitle }}</h3>
@@ -30,7 +31,11 @@
     </ul>
     <p>{{ packageInfo.migration?.name }}</p>
     <div class="item">
-      <img v-if="packageInfo.migration?.name" src="../../assets/check-icon.svg" alt="check icon" />
+      <img
+        v-if="packageInfo.migration?.name"
+        src="../../assets/check-icon.svg"
+        alt="check icon"
+      />
       <li>{{ packageInfo.migration?.sub }}</li>
     </div>
     <ul class="feature-list">
@@ -101,7 +106,7 @@ export default {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: whitesmoke;
   padding: 2rem;
@@ -121,10 +126,11 @@ button {
   width: 70%;
 }
 
+.feature-list {
+  text-align: start;
+}
 .item {
   display: flex;
-  text-align: start;
-  align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
@@ -148,8 +154,17 @@ li {
 }
 
 p {
+  align-self: flex-start;
   font-weight: 700;
-  text-align: left;
+}
+
+h1 {
+  color: #f30168;
+}
+
+h1 small {
+  font-weight: 400;
+  font-size: large;
 }
 
 h3 {
