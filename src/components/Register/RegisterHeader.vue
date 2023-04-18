@@ -1,15 +1,30 @@
 <template>
   <header>
-    <Logo :image-height="50" :imageWidth="220" />
+    <Logo
+      :image-height="50"
+      :imageWidth="220"
+      @click="goHome()"
+      style="cursor: pointer"
+    />
     <h1>
       Você está muito próximo de mudar a forma de <u>hospedar seu site</u>
     </h1>
   </header>
 </template>
 <script lang="ts">
+import router from "../../routes";
 import Logo from "../Logo.vue";
 export default {
   components: { Logo },
+  setup() {
+    function goHome() {
+      router.push({ name: "Login" });
+    }
+
+    return {
+      goHome,
+    };
+  },
 };
 </script>
 

@@ -6,7 +6,7 @@ import UserForm from '../pages/UserForm.vue';
 
 const routes = [{
   path: "/",
-  name: "login",
+  name: "Login",
   component: Login,
 },
 {
