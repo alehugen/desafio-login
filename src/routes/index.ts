@@ -34,7 +34,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const token = sessionStorage.getItem("token");
 
-  if (!token && to.name !== "Login") {
+  if (!token && to.name !== "Login" && to.name !== "User" && to.name !== 'Register') {
     return { name: "Login" };
   }
 });

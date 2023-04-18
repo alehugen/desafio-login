@@ -15,13 +15,13 @@
         type="text"
         label="Celular"
         placeholder="(99) 9999-0000"
-        v-model:value="formInputs.full_name"
+        v-model:value="formInputs.phone"
       />
       <TextInput
         type="text"
         label="E-mail"
         placeholder="Informe seu e-mail"
-        v-model:value="formInputs.full_name"
+        v-model:value="formInputs.email"
       />
       <TextInput
         type="password"
@@ -42,7 +42,7 @@
           type="text"
           label="Nome do seu site"
           placeholder="Meu site"
-          v-model:value="formInputs.full_name"
+          v-model:value="formInputs.website"
         />
         <p style="font-weight: 400; font-size: medium; margin-top: -3%">
           Exatamente igual ao título do seu site
@@ -50,21 +50,29 @@
       </div>
       <div class="divider"></div>
       <div class="terms">
-        <Checkbox v-model:value="formInputs.terms" />
+        <Checkbox v-model:check="formInputs.terms" />
         <h3>
           Ao concluir com seu cadastro você concorda com nossos
           <u>temos de uso</u> e <u>politicas de privacidade</u>.
         </h3>
       </div>
     </form>
-    <GenericButton label="CRIA CONTA" />
+    <GenericButton
+      label="CRIA CONTA"
+      :isDisabled="Object.values(formInputs).includes('') || !formInputs.terms"
+      @click="signUp(formInputs)"
+    />
   </div>
 </template>
 
 <script lang="ts">
+import { ref } from "vue";
 import GenericButton from "../Buttons/GenericButton.vue";
 import Checkbox from "../Inputs/Checkbox.vue";
 import TextInput from "../Inputs/TextInput.vue";
+import { API } from "../../services/axios";
+import axios from "axios";
+import router from "../../routes";
 interface FormInput {
   full_name: string;
   phone: string;
@@ -72,12 +80,12 @@ interface FormInput {
   password: string;
   confirmedPassword: string;
   website: string;
-  terms: boolean;
+  terms: Boolean;
 }
 export default {
   components: { TextInput, GenericButton, Checkbox },
   setup() {
-    const formInputs = {
+    const formInputs = ref({
       full_name: "",
       phone: "",
       email: "",
@@ -85,10 +93,29 @@ export default {
       confirmedPassword: "",
       website: "",
       terms: false,
-    };
+    });
 
     async function signUp(data: FormInput) {
-      console.log(data);
+      const { full_name, phone, email, password, website } = data;
+      try {
+        const response = await API.post("/users", {
+          email,
+          username: email,
+          password: password,
+          name: full_name,
+          address: website,
+          phone,
+        });
+
+        if (response.data.id) {
+          sessionStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR");
+          router.push('/home')
+        }
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          alert(error.response?.data ? error.response?.data : "CRITICAL ERROR");
+        }
+      }
     }
 
     return {
@@ -123,7 +150,7 @@ form {
 }
 
 .divider {
-  border-bottom: .5px solid #666262;
+  border-bottom: 0.5px solid #666262;
   margin: 10px 0;
   width: 110%;
   overflow: hidden;

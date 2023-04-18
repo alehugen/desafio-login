@@ -1,6 +1,6 @@
 <template>
   <label>
-    <input type="checkbox" v-model="value" class="my-checkbox" />
+    <input type="checkbox" v-model="check" class="my-checkbox" />
     <span class="checkbox-style"></span>
   </label>
 </template>
@@ -10,24 +10,24 @@ import { computed } from "vue";
 
 export default {
   props: {
-    value: {
+    check: {
       type: Boolean,
       required: true,
     },
   },
-  emits: ["update:value"],
+  emits: ["update:check"],
   setup(props, ctx) {
-    const value = computed({
+    const check = computed({
       get() {
-        return props.value;
+        return props.check;
       },
-      set(value) {
-        ctx.emit("update:value", value);
+      set(check) {
+        ctx.emit("update:check", check);
       },
     });
 
     return {
-      value,
+      check,
     };
   },
 };
