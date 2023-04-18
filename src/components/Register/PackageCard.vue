@@ -1,6 +1,9 @@
 <template>
   <div class="card">
-    <div class="tag" v-if="packageInfo.mostWanted">MAIS USADO</div>
+    <div class="tag" v-if="packageInfo.mostWanted && !isCheckout">
+      MAIS USADO
+    </div>
+    <div class="tag black" v-if="isCheckout">PLANO ESCOLHIDO</div>
     <h2>{{ packageInfo.title }}</h2>
     <h1 v-if="packageInfo.fee === 0">Grátis</h1>
     <h1 v-else><small>R$ </small>{{ packageInfo.fee }}<small>/mês</small></h1>
@@ -9,6 +12,7 @@
     <h3>{{ packageInfo.subTitle }}</h3>
     <div class="divider"></div>
     <GenericButton
+      v-if="!isCheckout"
       label="ESCOLHER ESSE PLANO"
       @click="selectPackage(packageInfo)"
     />
@@ -23,10 +27,10 @@
     </ul>
     <p>Suporte 24 horas, 7 dias por semana grátis;</p>
     <ul class="feature-list">
-      <p>{{ packageInfo.applications.name }}</p>
+      <p>{{ packageInfo.applications?.name }}</p>
       <div
         class="item"
-        v-for="(item, i) in packageInfo.applications.features"
+        v-for="(item, i) in packageInfo.applications?.features"
         :key="i"
       >
         <img src="../../assets/check-icon.svg" alt="check icon" />
@@ -43,16 +47,17 @@
       <li>{{ packageInfo.migration?.sub }}</li>
     </div>
     <ul class="feature-list">
-      <p>{{ packageInfo.pluses.name }}</p>
+      <p>{{ packageInfo.pluses?.name }}</p>
       <div
         class="item"
-        v-for="(item, i) in packageInfo.pluses.features"
+        v-for="(item, i) in packageInfo.pluses?.features"
         :key="i"
       >
         <img src="../../assets/check-icon.svg" alt="check icon" />
         <li>{{ item }}</li>
       </div>
     </ul>
+    <slot></slot>
   </div>
 </template>
 
@@ -70,13 +75,18 @@ export default {
       type: Object as () => PackageProps,
       required: true,
     },
+    isCheckout: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   setup(props) {
     const store = usePackageStore();
     const { packageInfo } = props;
 
     function selectPackage(pack: PackageProps) {
-      store.$patch({ pack: pack });
+      store.$patch({ selected: pack });
       router.push("/register/user");
     }
 
@@ -111,6 +121,11 @@ export default {
   font-weight: 600;
   background-color: #0bc403;
   color: #fff;
+}
+
+.tag.black {
+  width: 50%;
+  background-color: #000000;
 }
 
 button {
