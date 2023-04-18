@@ -1,18 +1,38 @@
-# Vue 3 + TypeScript + Vite
+# Desafio Login
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Este é um projeto VueJS 3 para login com cadastro. Ele usa as seguintes dependências:
 
-## Recommended IDE Setup
+- [axios](https://github.com/axios/axios) - cliente HTTP para requisições assíncronas
+- [dotenv](https://github.com/motdotla/dotenv) - carrega variáveis de ambiente a partir de um arquivo `.env`
+- [pinia](https://pinia.esm.dev/) - gerenciador de estado para Vue 3
+- [vue](https://v3.vuejs.org/) - framework JavaScript progressivo para construção de interfaces de usuário
+- [vue-router](https://router.vuejs.org/) - roteador oficial para Vue.js
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Scripts
 
-## Type Support For `.vue` Imports in TS
+- `dev` - inicia o servidor de desenvolvimento com o Vite
+- `build` - compila o projeto para produção
+- `preview` - serve a compilação de produção localmente para pré-visualização
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Como executar
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+1. Clone o repositório
+2. Instale as dependências: `npm install`
+3. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```
+VITE_API_URL=http://localhost:3000
+```
+
+4. Inicie o servidor de desenvolvimento: `npm run dev`
+5. Abra o navegador em `http://localhost:3000`
+
+## Como compilar para produção
+
+1. Siga os passos 1-3 acima
+2. Execute `npm run build`
+3. A compilação estará disponível na pasta `dist/`
+
+## Licença
+
+Este projeto foi realizado com a fim de teste técnico.
