@@ -1,18 +1,23 @@
 <template>
-  <button type="button">{{ label }}</button>
+  <button type="button" :disabled="isDisabled">{{ label }}</button>
 </template>
 <script lang="ts">
 export default {
   props: {
     label: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    isDisabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   setup(props) {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 <style lang="css" scoped>
 button {
@@ -28,5 +33,14 @@ button {
   text-transform: uppercase;
 
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #f3016ac7;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: #9c0245c7;
 }
 </style>

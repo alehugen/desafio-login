@@ -8,7 +8,7 @@
     <TextInput
       type="email"
       placeholder="Seu e-mail"
-      v-model:value="formInputs.user"
+      v-model:value="formInputs.username"
       label="E-mail"
     />
     <TextInput
@@ -18,7 +18,11 @@
       label="Senha"
     />
     <p class="password">Esqueci minha senha</p>
-    <GenericButton label="Fazer Login" @click="signIn()" />
+    <GenericButton
+      label="Fazer Login"
+      @click="signIn()"
+      :isDisabled="Object.values(formInputs).includes('')"
+    />
   </div>
 
   <router-link to="/register" class="link"
@@ -26,22 +30,39 @@
   >
 </template>
 <script lang="ts">
+import { ref } from "vue";
 import router from "../routes";
+import { API } from "../services/axios";
 import GenericButton from "./Buttons/GenericButton.vue";
 import TextInput from "./Inputs/TextInput.vue";
+import axios from "axios";
 
 export default {
   components: { TextInput, GenericButton },
   setup() {
-    const formInputs = {
-      user: "",
+    const formInputs = ref({
+      username: "",
       password: "",
-    };
+    });
 
     async function signIn() {
-      console.log(formInputs);
-      router.push("/home");
+      const { username, password } = formInputs.value;
+      try {
+        const response = await API.post("/auth/login", {
+          username,
+          password,
+        });
+        if (response.data.token) {
+          sessionStorage.setItem("token", response.data.token);
+          router.push("/home");
+        }
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          alert(error.response?.data ? error.response?.data : "CRITICAL ERROR");
+        }
+      }
     }
+
     return {
       formInputs,
       signIn,
