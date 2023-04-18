@@ -11,16 +11,16 @@
 }
 
 body {
-  background-color: '#fafafc';
-  color: '#292D32';
-  -webkit-font-smoothing: 'antialiased';
+  background-color: "#fafafc";
+  color: "#292D32";
+  -webkit-font-smoothing: "antialiased";
 }
 
 body,
 input,
 textarea,
 button {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 400;
 }
 </style>
