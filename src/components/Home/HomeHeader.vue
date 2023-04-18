@@ -14,7 +14,7 @@
 import { onUnmounted, ref, watchEffect } from "vue";
 import AvatarButton from "../Buttons/AvatarButton.vue";
 import Logo from "../Logo.vue";
-import router from "../../routes";
+import router from '../../routes';
 export default {
   components: { Logo, AvatarButton },
   setup() {
@@ -40,7 +40,8 @@ export default {
     });
 
     function logout() {
-      router.push("/");
+      sessionStorage.removeItem('token');
+      router.push('/')
     }
 
     onUnmounted(() => {
