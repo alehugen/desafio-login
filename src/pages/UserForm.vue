@@ -10,7 +10,7 @@ export default {
     onMounted(() => console.log());
 
     return {
-      route,
+      
     };
   },
 };
