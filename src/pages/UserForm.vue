@@ -18,14 +18,13 @@ import { usePackageStore } from "../stores/packageStore";
 import router from "../routes";
 import SecondaryButton from "../components/Buttons/SecondaryButton.vue";
 
-
 export default {
   components: { RegisterHeader, RegisterForm, PackageCard, SecondaryButton },
   setup() {
     const { selected } = usePackageStore();
 
     function changePackage() {
-      router.back()
+      router.back();
     }
 
     onMounted(() => {
@@ -72,5 +71,13 @@ export default {
 
 button {
   z-index: 1;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  
+}
+
+@media only screen and (max-width: 768px) {
+ 
 }
 </style>

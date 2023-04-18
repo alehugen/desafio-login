@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="header">
+    <header>
       <Logo :image-height="36" :image-width="180" />
     </header>
     <LoginForm />
@@ -27,8 +27,8 @@ export default {
 }
 
 .container header {
-  width: 100%;
   margin-top: 5%;
   padding: 1%;
+  width: .7rem;
 }
 </style>

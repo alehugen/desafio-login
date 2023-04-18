@@ -79,9 +79,7 @@ export default {
   padding: 1rem 1.5rem 1.5rem 1.5rem;
   background-color: #ffffff;
   border-radius: 5px;
-  width: 600px;
-  max-width: 700px;
-  min-height: 400px;
+  width: 500px;
   color: rgb(42, 52, 62);
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -103,7 +101,7 @@ export default {
 }
 
 p {
-  font-weight: 700;
+  font-weight: 600;
   font-size: x-large;
 }
 
@@ -113,7 +111,7 @@ span {
 }
 
 .link {
-  margin-top: 3rem;
+  margin: 1.75rem;
   text-decoration: none;
   font-weight: 600;
   color: rgb(42, 52, 62);
