@@ -7,7 +7,6 @@
       v-model="value"
       :placeholder="placeholder"
     />
-    <p v-if="type === 'password'">Esqueci minha senha</p>
   </div>
 </template>
 <script lang="ts">
