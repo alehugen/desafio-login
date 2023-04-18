@@ -3,14 +3,14 @@
 </template>
 
 <script lang="ts">
-import { onMounted } from "vue";
+import { usePackageStore } from "../stores/packageStore";
 
 export default {
   setup() {
-    onMounted(() => console.log());
+    const store = usePackageStore();
 
     return {
-      
+      store,
     };
   },
 };

@@ -1,10 +1,5 @@
 <template>
-  <header>
-    <Logo :image-height="50" :imageWidth="220" />
-    <h1>
-      Você está muito próximo de mudar a forma de <u>hospedar seu site</u>
-    </h1>
-  </header>
+  <RegisterHeader />
   <main>
     <template v-for="(card, i) in Packages" :key="i">
       <PackageCard :packageInfo="card" />
@@ -15,9 +10,10 @@
 <script lang="ts">
 import Logo from "../components/Logo.vue";
 import PackageCard from "../components/Register/PackageCard.vue";
+import RegisterHeader from "../components/Register/RegisterHeader.vue";
 import { Packages } from "../miscellaneous/index";
 export default {
-  components: { Logo, PackageCard },
+  components: { Logo, PackageCard, RegisterHeader },
   setup() {
     return {
       Packages,
@@ -27,28 +23,6 @@ export default {
 </script>
 
 <style scoped>
-header {
-  margin: 1.75rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  margin: 1.75rem 0;
-  hyphens: auto;
-  text-align: center;
-  color: #2b2c31;
-  font-weight: 700;
-}
-
-h1 u {
-  display: block;
-  margin: 0 auto;
-  color: #f30168;
-}
-
 main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -62,5 +36,4 @@ main {
 main > * {
   align-self: stretch;
 }
-
 </style>

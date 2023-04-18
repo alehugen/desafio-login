@@ -60,6 +60,7 @@
 import GenericButton from "../Buttons/GenericButton.vue";
 import { usePackageStore } from "../../stores/packageStore";
 import { PackageProps } from "../../DTO/Package";
+import router from "../../routes";
 export default {
   components: {
     GenericButton,
@@ -75,7 +76,8 @@ export default {
     const { packageInfo } = props;
 
     function selectPackage(pack: PackageProps) {
-      console.log(pack);
+      store.$patch({ pack: pack });
+      router.push("/register/user");
     }
 
     return {
