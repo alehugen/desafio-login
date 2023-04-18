@@ -17,7 +17,7 @@
       @click="selectPackage(packageInfo)"
     />
     <p>
-      Seu site em servidores <u>nos {{ packageInfo.location }}</u>
+      Seu site em servidores <u>no {{ packageInfo.location }}</u>
     </p>
     <ul class="feature-list">
       <div class="item" v-for="(item, i) in packageInfo.features" :key="i">
