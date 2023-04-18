@@ -35,6 +35,9 @@
         placeholder=""
         v-model:value="formInputs.confirmedPassword"
       />
+      <small v-if="formInputs.password !== formInputs.confirmedPassword"
+        >Sua senha está diferente</small
+      >
       <div class="divider"></div>
       <div class="site-data">
         <h1>Dados do seu site</h1>
@@ -109,7 +112,7 @@ export default {
 
         if (response.data.id) {
           sessionStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR");
-          router.push('/home')
+          router.push("/home");
         }
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -170,5 +173,14 @@ form {
 button {
   font-weight: 600;
   width: 95%;
+}
+
+small {
+  color: red;
+  display: flex;
+  align-self: flex-start;
+  margin-top: -2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
 }
 </style>
