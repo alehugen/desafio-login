@@ -57,31 +57,9 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
 import GenericButton from "../Buttons/GenericButton.vue";
-import { useRouter } from "vue-router";
-interface PackageProps {
-  id: number;
-  title: string;
-  fee: number;
-  description: string;
-  subTitle: string;
-  location: string;
-  features: string[];
-  applications: {
-    name: string;
-    features: string[];
-  };
-  migration: {
-    name: string;
-    sub: string;
-  } | null;
-  pluses: {
-    name: string;
-    features: string[];
-  };
-  mostWanted: number;
-}
+import { usePackageStore } from "../../stores/packageStore";
+import { PackageProps } from "../../DTO/Package";
 export default {
   components: {
     GenericButton,
@@ -93,8 +71,7 @@ export default {
     },
   },
   setup(props) {
-    const features = ref(["um", "dois", "tres"]);
-
+    const store = usePackageStore();
     const { packageInfo } = props;
 
     function selectPackage(pack: PackageProps) {
@@ -102,7 +79,6 @@ export default {
     }
 
     return {
-      features,
       packageInfo,
       selectPackage,
     };
