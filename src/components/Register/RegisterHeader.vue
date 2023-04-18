@@ -56,6 +56,11 @@ h1 u {
     width: 70%;
     transform: translateX(20%);
   }
+
+  h1 {
+    word-wrap: break-word;
+    max-width: 25rem;
+  }
 }
 
 @media only screen and (max-width: 726px) {
@@ -63,6 +68,11 @@ h1 u {
     align-items: center;
     width: 50%;
     transform: translateX(30%);
+  }
+
+  h1 {
+    word-wrap: break-word;
+    max-width: 19rem;
   }
 }
 </style>

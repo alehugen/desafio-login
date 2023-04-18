@@ -1,8 +1,9 @@
 <template>
   <RegisterHeader />
   <div class="grid-container">
-    <RegisterForm />
-    <PackageCard :packageInfo="selected" isCheckout>
+    <RegisterForm class="el-1" />
+
+    <PackageCard :packageInfo="selected" isCheckout class="el-2">
       <div class="blur"></div>
       <SecondaryButton label="Trocar Plano" @click="changePackage()" />
     </PackageCard>
@@ -73,11 +74,27 @@ button {
   z-index: 1;
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1200px) {
-  
-}
+@media only screen and (max-width: 960px) {
+  .grid-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-@media only screen and (max-width: 768px) {
- 
+  .el-2 {
+    order: 1;
+  }
+
+  .el-1 {
+    order: 2;
+  }
+
+  .form-contaier {
+    width: 50%;
+  }
+
+  .card {
+    width: 50%;
+    
+  }
 }
 </style>

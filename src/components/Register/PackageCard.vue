@@ -124,7 +124,7 @@ export default {
 }
 
 .tag.black {
-  width: 50%;
+  width: 70%;
   background-color: #000000;
 }
 
@@ -196,6 +196,10 @@ span {
     width: 18%;
   }
 
+  .tag.black {
+    width: 60%;
+  }
+
   h2 {
     font-size: medium;
   }
@@ -206,7 +210,7 @@ span {
 
   button {
     font-size: medium;
-    padding: 0.75rem .25rem;
+    padding: 0.75rem 0.25rem;
   }
 
   p {
@@ -221,6 +225,9 @@ span {
     width: 20%;
   }
 
+  .tag.black {
+    width: 70%;
+  }
   .card {
     height: 18%;
     padding: 1rem 1rem;
@@ -286,6 +293,6 @@ span {
     font-weight: 600;
     font-size: medium;
   }
-
 }
+
 </style>

@@ -183,4 +183,19 @@ small {
   margin-bottom: 2%;
   margin-left: 3%;
 }
+
+@media only screen and (max-width: 960px) {
+
+  .container {
+    width: 50%;
+  }
+
+  .titles {
+    width: 100%;
+  }
+
+  form {
+    width: 90%;
+  }
+}
 </style>
