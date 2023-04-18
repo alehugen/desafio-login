@@ -36,4 +36,11 @@ main {
 main > * {
   align-self: stretch;
 }
+
+@media only screen and (max-width: 1289px) {
+  main {
+    width: 80%;
+  }
+  
+}
 </style>

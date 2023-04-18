@@ -113,7 +113,7 @@ export default {
 
 .tag {
   position: absolute;
-  width: 8%;
+  width: 12%;
   margin-top: -2.75rem;
   text-align: center;
   border-radius: 5px;
@@ -189,5 +189,103 @@ span {
   word-wrap: break-word;
   max-width: 15rem;
   text-align: center;
+}
+
+@media only screen and (max-width: 967px) {
+  .tag {
+    width: 18%;
+  }
+
+  h2 {
+    font-size: medium;
+  }
+
+  h3 {
+    font-size: medium;
+  }
+
+  button {
+    font-size: medium;
+    padding: 0.75rem .25rem;
+  }
+
+  p {
+    align-self: center;
+    font-weight: 600;
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 726px) {
+  .tag {
+    width: 20%;
+  }
+
+  .card {
+    height: 18%;
+    padding: 1rem 1rem;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: medium;
+  }
+
+  h3 {
+    font-size: medium;
+    word-break: break-all;
+    max-width: 7rem;
+  }
+
+  button {
+    font-size: medium;
+    padding: 0.75rem 0;
+    margin-bottom: 10rem;
+  }
+
+  p {
+    align-self: center;
+    font-weight: 600;
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 662px) {
+  .tag {
+    width: 20%;
+  }
+
+  .card {
+    height: 18%;
+    padding: 1rem 1rem;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: medium;
+  }
+
+  h2 {
+    font-size: small;
+  }
+
+  h3 {
+    font-size: medium;
+    word-break: break-all;
+    max-width: 9rem;
+  }
+
+  button {
+    font-size: medium;
+    padding: 0.75rem 0;
+    margin-bottom: 10rem;
+  }
+
+  p {
+    align-self: center;
+    font-weight: 600;
+    font-size: medium;
+  }
+
 }
 </style>

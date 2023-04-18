@@ -50,4 +50,19 @@ h1 u {
   margin: 0 auto;
   color: #f30168;
 }
+
+@media only screen and (max-width: 967px) {
+  header {
+    width: 70%;
+    transform: translateX(20%);
+  }
+}
+
+@media only screen and (max-width: 726px) {
+  header {
+    align-items: center;
+    width: 50%;
+    transform: translateX(30%);
+  }
+}
 </style>
