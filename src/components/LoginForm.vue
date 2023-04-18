@@ -17,7 +17,7 @@
       v-model:value="formInputs.password"
       label="Senha"
     />
-
+    <p class="password">Esqueci minha senha</p>
     <GenericButton label="Fazer Login" @click="signIn()" />
   </div>
 
@@ -64,6 +64,15 @@ export default {
   color: rgb(42, 52, 62);
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.form-box .password {
+  display: flex;
+  align-self: flex-end;
+  font-weight: 600;
+  font-size: medium;
+  margin-top: -3%;
+  margin-bottom: 3%;
 }
 
 .form-titles {
